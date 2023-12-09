@@ -4,6 +4,9 @@ author: "Sara"
 format: 
   html:
     embed_resources: true
+    
+params:
+  location: Zch_Stampfenbachstrasse
 ---
 
 ```{r}
@@ -18,9 +21,9 @@ library(targets)
 targets::tar_load(data)
 
 temperature <- data$temperature |>
-  filter(standort == "Zch_Stampfenbachstrasse")
+  filter(standort == params$location)
 rain <- data$rain |>
-  filter(standort == "Zch_Stampfenbachstrasse")
+  filter(standort == params$location)
 ```
 
 # Inspect the data
