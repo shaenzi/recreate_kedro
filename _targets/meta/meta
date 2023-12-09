@@ -1,4 +1,7 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+.Random.seed|object|6c5854b1c2a99f71|||||||||||||||
 config|stem|aed4d371052dad1b|827f1d6f4df02707|ef46db3751d8e999|1264390909||t19697.9044301041s|b1e85e08060e9f38|321|rds|local|vector|||0.86||
 data|stem|9de2012098d8ef3f|e8e9b162a7fed7f8|d8b4df8d2db21cde|1588979285||t19697.9065195199s|04f4b1767ff13b1d|1430638|rds|local|vector|||15.15||
 download_meteo_data|function|77c731cb87c974e7|||||||||||||||
+report|stem|5497d0828d54d98d|3725397156e59048|e109afda8b2dfe51|-237041703|quartos/base_meteo.html*quartos/base_meteo.qmd|t19700.9100622732s|c308efd598a0adf8|16164|file|local|vector|||13.14||
+report2|stem|5947de6866926605|377906881c61f4b3|e109afda8b2dfe51|-1253350427|base_meteo.html*base_meteo_files*base_meteo.qmd|t19700.9074027225s|54fa2d89752fc8b5|702640|file|local|vector|||14.66||

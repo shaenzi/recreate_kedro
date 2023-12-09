@@ -3,11 +3,20 @@
 
 # Load packages required to define the pipeline:
 library(targets)
-# library(tarchetypes) # Load other packages as needed.
+library(tarchetypes) # Load other packages as needed.
 
 # Set target options:
 tar_option_set(
-  packages = c("data.table", "dplyr", "janitor", "lubridate", "purrr", "stringr", "tibble") # packages that your targets need to run
+  packages = c("data.table", 
+               "dplyr", 
+               "here", 
+               "janitor", 
+               "lubridate", 
+               "purrr", 
+               "quarto",
+               "stringr", 
+               "tarchetypes", 
+               "tibble") # packages that your targets need to run
   # format = "qs", # Optionally set the default storage format. qs is fast.
   # Set other options as needed.
 )
@@ -29,5 +38,9 @@ list(
     name = data,
     command = download_meteo_data(config$urls)
     # format = "feather" # efficient storage for large data frames
+  ),
+  tar_quarto(
+    name = report,
+    path = here::here("quartos", "base_meteo.qmd")
   )
 )

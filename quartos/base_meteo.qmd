@@ -1,0 +1,30 @@
+---
+title: "Plot some meteo data"
+author: "Sara"
+format: 
+  html:
+    embed_resources: true
+---
+
+```{r}
+library(dplyr)
+library(targets)
+```
+
+
+# Load the data
+
+```{r}
+targets::tar_load(data)
+
+temperature <- data$temperature |>
+  filter(standort == "Zch_Stampfenbachstrasse")
+rain <- data$rain |>
+  filter(standort == "Zch_Stampfenbachstrasse")
+```
+
+# Inspect the data
+
+```{r}
+str(rain)
+```
