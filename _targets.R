@@ -28,19 +28,25 @@ options(clustermq.scheduler = "multiprocess")
 # Run the R scripts in the R/ folder with your custom functions:
 tar_source()
 
-# Replace the target list below with your own:
 list(
   tar_target(
     name = config,
-    command = config::get()
+    command = config::get(),
+    cue = tar_cue(mode = "always") 
+    # it does not recognise that it needs to rerun when config.yml changes
+    # not sure whether this should be a target? or I just call it above?
   ),
   tar_target(
     name = data,
     command = download_meteo_data(config$urls)
     # format = "feather" # efficient storage for large data frames
   ),
-  tar_quarto(
+  tar_quarto_rep(
     name = report,
-    path = here::here("quartos", "base_meteo.qmd")
+    path = here::here("quartos", "base_meteo.qmd"),
+    execute_params = tibble::tibble(
+      location = config$locations,
+      output_file = here::here("quartos", paste0("base_meteo_", config$locations, ".html"))
+    )
   )
 )

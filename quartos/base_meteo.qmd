@@ -31,3 +31,16 @@ rain <- data$rain |>
 ```{r}
 str(rain)
 ```
+
+```{r}
+str(temperature)
+```
+
+# Plot the data
+
+todo
+
+apart from plotting
+
+- self-contained/embedding resources does not work
+- render with main path as working dir
